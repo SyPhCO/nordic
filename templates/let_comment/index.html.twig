@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LetCommentController!{% endblock %}
+
+{% block content %}
+    <h1 class="mt-5">Laissez votre commentaire</h1>
+
+    <a href="{{ path('app_account') }}">Retour</a>
+    <hr>
+{% if notification %}
+<div class="alert alert-info">{{ notification }} </div>
+{% endif %}
+    {{ form_start(form) }}
+        <div class="row">
+            <div class="col-md-6">{{form_row(form.author)}}</div>
+            <div class="col-md-6">{{form_row(form.comment)}}</div>
+            <div class="col-md-6">{{form_row(form.illustration)}}</div>
+            <div class="col-md-6">{{form_row(form.activity)}} </div>
+            <div class="col-md-6 m-auto">{{form_row(form.submit)}}
+            <small>*Attention si le commentaire n'as pas la bonne activités il ne pourrat être publié</small>
+            </div>
+
+
+
+
+        </div>
+
+
+    {{ form_end(form) }}
+{% endblock %}

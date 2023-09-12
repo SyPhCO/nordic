@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Partenaires{% endblock %}
+
+{% block content %}
+  {% for partner in partners %}
+<div class="row featurette mt-5 justify-content-center">
+
+    {# mettre un bouton de retour en arriere sur les zoom #}
+        <div class="col-md-12">
+        <h1 class="featurette-heading text-center text-center">{{ partner.name }}</h1>
+
+							<div class="gallery">
+								<div class="gallery-item col-5">
+									<img src="/uploads/{{ partner.illustration }}" class="mb-2 zoom" alt="test3">
+								</div>
+							</div>
+
+            <p class="lead">{{ partner.description }}</p>
+        </div>
+
+                    {# <div class="col-xl-3 col-md-6 col-sm-6 col-xs-6">
+                        <a class="img-thumbnail" href="/uploads/{{ partner.gallery }}" data-lightbox="imgGLR" >
+                            <img class="img-thumbnail " border="0" src="/uploads/{{ partner.gallery }}" width="400" />
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-sm-6 col-xs-6">   
+                        <a class="img-thumbnail" href="/uploads/{{ partner.gallery2 }}" data-lightbox="imgGLR" >
+                            <img class="img-thumbnail" border="0" src="/uploads/{{ partner.gallery2 }}" width="400" />
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-sm-6 col-xs-6">
+                        <a class="img-thumbnail" href="/uploads/{{ partner.gallery3 }}" data-lightbox="imgGLR" >
+                            <img class="img-thumbnail " border="0" src="/uploads/{{ partner.gallery3 }}" width="400" />
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-sm-6 col-xs-6">   
+                        <a class="img-thumbnail" href="/uploads/{{ partner.gallery4 }}" data-lightbox="imgGLR" >
+                            <img class="img-thumbnail" border="0" src="/uploads/{{ partner.gallery4 }}" width="400" />
+                        </a>
+                    </div>
+                   <hr class="featurette-divider">     #}
+<div class="container cont-gallery" id="#gallery">
+							<div class="gallery">
+
+								<div class="gallery-item ">
+									<img src="/uploads/{{ partner.gallery }}" class="mb-2 zoom" alt="test">
+								</div>
+							</div>
+
+							<div class="gallery">
+								<div class="gallery-item">
+									<img src="/uploads/{{ partner.gallery2 }}" class="mb-2 zoom" alt="test2">
+								</div>
+							</div>
+
+							<div class="gallery">
+								<div class="gallery-item">
+									<img src="/uploads/{{ partner.gallery3 }}" class="mb-2 zoom" alt="test3">
+								</div>
+							</div>
+							<div class="gallery">
+								<div class="gallery-item">
+									<img src="/uploads/{{ partner.gallery4 }}" class="mb-2 zoom" alt="test3">
+								</div>
+							</div>
+							<div class="gallery">
+								<div class="gallery-item">
+									<img src="/uploads/{{ partner.gallery5 }}" class="mb-2 zoom" alt="test3">
+								</div>
+							</div>
+							<div class="gallery">
+								<div class="gallery-item">
+									<img src="/uploads/{{ partner.gallery6 }}" class="mb-2 zoom" alt="test3">
+								</div>
+							</div>
+						</div>
+
+						<div class="modal">
+							<span class="close">&times;</span>
+							<img class="modal-content" src="" alt="">
+						</div>
+					</div>
+</div>
+                   
+{% endfor %}    
+        
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TeamController!
+{% endblock %}
+
+{% block content %}
+	{% for team in teams %}
+		<div class="row featurette mt-5 justify-content-center">
+
+			{# mettre un bouton de retour en arriere sur les zoom #}
+			<div class="col-md-12">
+				<h2 class="featurette-heading">{{ team.name }}<br>
+					<span class="text-muted">{{ team.role }}</span>
+				</h2>
+				{% if (team.header == 1) %}
+
+					<a class="img-thumbnail " href="/uploads/{{ team.illustration }}" data-lightbox="imgGLR">
+						<img class="img-thumbnail mt-4" border="0" src="/uploads/{{ team.illustration }}" width="400"/>
+					</a>
+				{% endif %}
+				<p class="lead">{{ team.description }}</p>
+			</div>
+
+			<div class="col-xl-3 col-md-6 col-sm-6 col-xs-6">
+				<a class="img-thumbnail" href="/uploads/{{ team.gallery }}" data-lightbox="imgGLR">
+					<img class="img-thumbnail " border="0" src="/uploads/{{ team.gallery }}" width="400"/>
+				</a>
+			</div>
+			<div class="col-xl-3 col-md-6 col-sm-6 col-xs-6">
+				<a class="img-thumbnail" href="/uploads/{{ team.gallery2 }}" data-lightbox="imgGLR">
+					<img class="img-thumbnail" border="0" src="/uploads/{{ team.gallery2 }}" width="400"/>
+				</a>
+			</div>
+			<div class="col-xl-3 col-md-6 col-sm-6 col-xs-6">
+				<a class="img-thumbnail" href="/uploads/{{ team.gallery3 }}" data-lightbox="imgGLR">
+					<img class="img-thumbnail " border="0" src="/uploads/{{ team.gallery3 }}" width="400"/>
+				</a>
+			</div>
+			<div class="col-xl-3 col-md-6 col-sm-6 col-xs-6">
+				<a class="img-thumbnail" href="/uploads/{{ team.gallery4 }}" data-lightbox="imgGLR">
+					<img class="img-thumbnail" border="0" src="/uploads/{{ team.gallery4 }}" width="400"/>
+				</a>
+			</div>
+			<hr class="featurette-divider">
+
+		</div>
+	{% endfor %}
+
+
+{% endblock %}

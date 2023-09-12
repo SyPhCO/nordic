@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes adresses - Nordic Indiana{% endblock %}
+
+{% block content %}
+    <a href="{{ path('app_account_address_add')}}" class="btn btn-info btn-sm float-right mt-3">Ajouter une adresse</a>
+    <h1 class="mt-5">Mes Adresses</h1>
+     Dans cette espace vous allez pouvoir gerer toute vos adresses.<br>
+    <a href="{{ path('app_account') }}" class="btn btn-outline-danger btn-sm">Retour</a>
+    <hr>
+{% if app.user.addresses|length == 0 %}
+    <p class="text-center">
+        Vous n'avez pas encore ajouté d'adresse dans votre compte client. Pour en ajouter une, veuillez <a href="{{ path('app_account_address_add')}}">cliquer ici</a>.
+    </p>
+    {% else %}
+        {% for address in app.user.addresses %}
+        <div class="card text-center mb-5">
+            <div class="card-header font-weight-bold">
+                    <h1>{{ address.name }}</h1>
+            </div>
+
+            <div class="card-body">
+                <h5 class="card-title">{{ address.address }}</h5>
+                <p class="card-text">{{ address.postal }} - {{ address.city }} - {{ address.country }}</p>
+                <a href="{{ path('app_account_address_edit', { 'id' : address.id}) }}" class="btn btn-info mr-5">Modifier</a>
+                 <a href=" {{ path('app_account_address_delete', { 'id' : address.id}) }} " class="btn btn-danger">Supprimer</a>
+            </div>
+
+            <div class="card-footer text-body-secondary font-weight-bold">
+                {{ address.company }}
+            </div>
+        </div>
+            
+        {% endfor %}
+{% endif %}
+
+{% endblock %}

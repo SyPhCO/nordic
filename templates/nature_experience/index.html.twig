@@ -1,0 +1,132 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Expérience Nature
+{% endblock %}
+
+{% block content %}
+
+	<h1 class="text-center mt-5">Expérience Nature</h1>
+	{# <div class="col-md-4 mt-5"> #}
+	{% for product in products %}
+
+		{% if product.isDog == 0 %}
+			<hr class=" mt-5 mb-5 pt-1">
+			<div class="card">
+				<ul class="nav nav-tabs " id="myTab" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" id="home-{{ product.id }}-tab" data-toggle="tab" href="#home-{{ product.id }}" role="tab" aria-controls="home" aria-selected="true">Activité</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="profile-{{ product.id }}-tab" data-toggle="tab" href="#profile-{{ product.id }}" role="tab" aria-controls="profile" aria-selected="false">Photographies</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="contact-{{ product.id }}-tab" data-toggle="tab" href="#contact-{{ product.id }}" role="tab" aria-controls="contact" aria-selected="false">Retour d'éxperience</a>
+					</li>
+				</ul>
+				<div class="tab-content" id="myTabContent">
+
+
+					<div class="tab-pane fade show active" id="home-{{ product.id }}" role="tabpanel" aria-labelledby="home-tab">
+						<div class="container mt-5 p-2">
+							<div class="row">
+								<h2 class="col-12 text-center">{{ product.name }}</h2>
+								<div class="col-md-4">
+									<a href="{{ path('app_product', { 'slug' : product.slug }) }}">
+										<img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}" class="img-thumbnail rounded" width="400" height="400" data-lightbox="imgGLR">
+									</a>
+								</div>
+								<div class="col-md-8 font-weight-bold text-center d-flex m-auto " height="400">{{ product.description }}</div>
+
+								<hr class="mt-2 mb-2">
+
+								<div class="col-md-4 d-flex m-auto ">
+									<span class="product-price font-weight-bold text-center">A partir de:
+										{{ (product.price / 100)|number_format(2, ',', '.') }}
+										€ par personne</span>
+								</div>
+								<div class="col-md-8 text-center">
+									<span class="product-subtitle ">{{ product.subtitle }}</span>
+									<br>
+									<a href="{{ path('app_product', { 'slug' : product.slug }) }}" class="btn btn-info text-center font-weight-bold mt-2">Laissé vous tentez</a>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+
+					<div class="tab-pane fade" id="profile-{{ product.id }}" role="tabpanel" aria-labelledby="profile-tab">
+
+						<div class="container cont-gallery" id="#gallery">
+							<div class="gallery">
+
+								<div class="gallery-item">
+									<img src="/uploads/{{ product.gallery }}" class="mb-2" alt="test">
+								</div>
+							</div>
+
+							<div class="gallery">
+								<div class="gallery-item">
+									<img src="/uploads/{{ product.gallery2 }}" class="mb-2" alt="test2">
+								</div>
+							</div>
+
+							<div class="gallery">
+								<div class="gallery-item">
+									<img src="/uploads/{{ product.gallery3 }}" class="mb-2" alt="test3">
+								</div>
+							</div>
+							<div class="gallery">
+								<div class="gallery-item">
+									<img src="/uploads/{{ product.gallery4 }}" class="mb-2" alt="test3">
+								</div>
+							</div>
+							<div class="gallery">
+								<div class="gallery-item">
+									<img src="/uploads/{{ product.gallery5 }}" class="mb-2" alt="test3">
+								</div>
+							</div>
+							<div class="gallery">
+								<div class="gallery-item">
+									<img src="/uploads/{{ product.gallery6 }}" class="mb-2" alt="test3">
+								</div>
+							</div>
+						</div>
+
+						<div class="modal">
+							<span class="close">&times;</span>
+							<img class="modal-content" src="" alt="">
+						</div>
+					</div>
+
+
+					<div class="tab-pane fade" id="contact-{{ product.id }}" role="tabpanel" aria-labelledby="contact-tab">
+						{% for comment in pagination %}
+							{% if comment.isValid == 1 %}
+
+								{% if (comment.activity.id == product.id) %}
+
+
+									<div class="row mt-3 justify-content-center p-4">
+										<h2 class="col-md-12 text-center fw-bolder">{{comment.author}}</h2>
+										<div class="gallery-item col-md-5">
+											<img src="/uploads/comments/{{ comment.illustration }}" class="mb-2 zoom" alt="test3">
+										</div>
+										<div class="col-md-5">{{comment.comment}}</div>
+									</div>
+
+									<hr>
+
+								{% endif %}
+							{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+
+		{% endif %}
+	{% endfor %}
+	{# </div> #}
+
+
+{% endblock %}

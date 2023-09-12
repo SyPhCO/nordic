@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+        
+       
+
+<!-- LA MEUTE -->
+ <div class="container">
+      <div class="row">
+
+        <div class="col-lg-12 text-center pt-5"><h1 class="page-header">La meute</h1></div>
+            {% for horde in hordes %}
+                {% if horde.wonderland == 0 %}
+                    <div class="col-md-4 mt-5">
+                        <h2 class="text-center font-weight-bold text-info">{{ horde.name}}</h2>
+                        <p class="text-center font-weight-bold">{{ horde.breed }} - {{ horde.gender }}</p>
+                        <p class="text-center font-weight-bold">{{ horde.birth }}</p>
+                        <a class="img-thumbnail" href="/uploads/{{ horde.illustration }}" data-lightbox="imgGLR" >
+                            <img class="img-thumbnail" border="0" src="/uploads/{{ horde.illustration }}" width="400" />
+                        </a>
+                        <p>{{ horde.description }}</p>
+                    </div>
+                {% endif %}
+            {% endfor %}        
+	    </div>	
+    
+</div>
+
+<hr class="m-5">
+
+<div class="container">
+      <div class="row">
+
+        <div class="col-lg-12 text-center p-5"><h1 class="page-header">Le paradis blanc</h1></div>
+  {% for horde in hordes %}
+    {% if horde.wonderland == 1 %}
+                <div class="col-md-4 mt-5">
+                    <h2 class="text-center font-weight-bold text-info">{{ horde.name}}</h2>
+                    <p class="text-center font-weight-bold">{{ horde.breed }} - {{ horde.gender }}</p>
+                    <a class="img-thumbnail" href="/uploads/{{ horde.illustration }}" data-lightbox="imgGLR" >
+                        <img class="img-thumbnail"  border="0" src="/uploads/{{ horde.illustration }}" width="400" />
+                    </a>
+                    <p>{{ horde.description }}</p>
+                </div>
+                {% endif %}
+        {% endfor %}
+
+	</div>	
+</div>
+{% endblock %} 

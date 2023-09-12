@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nous contacter - Nordic Indiana{% endblock %}
+
+{% block content %}
+    <h1>Me contacter</h1>
+    <p>N'hésitez pas a prendre contact avec moi , pour tous renseignements ( réservation, achat de bon cadeau, informations complémentaires etc... ) </p>
+
+        {% if app.user %}
+            <div class="mb-3">
+                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+            </div>
+        {% endif %}
+
+    <div class="row mt-5 pt-5">
+        <div class="col-md-8">{{ form(form) }}</div>
+            <div class="col-md-4">
+            <h1>Nordic Indiana</h1>
+            <hr>
+                <ul class="list-unstyled mb-0">
+                    <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                        <p>01430 VIEU D'IZENAVE</p>
+                    </li>
+
+                    <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                        <p>06 71 37 71 24</p>
+                    </li>
+
+                    <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                        <p>nordicindiana@yahoo.fr</p>
+                    </li>
+                </ul>
+        </div>
+    </div>
+{% endblock %}

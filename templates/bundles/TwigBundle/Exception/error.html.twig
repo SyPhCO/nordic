@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page introuvable - Nordic Indiana{% endblock %}
+
+{% block content %}
+    <div class="block-small">
+        <h1>Erreur {{ exception.statusCode }}</h1>
+        
+      <p class="my-2 text-2xl font-bold text-center text-gray-800 md:text-3xl">
+        {{ exception.statusText }}
+      </p>
+        <p>Désolé, cette page ne semble pas être accessible pour le moment.</p>
+        <a href="{{ path('app_home') }}" class="btn btn-info">Revenir à l'acceuil</a>
+    </div>
+{% endblock %}

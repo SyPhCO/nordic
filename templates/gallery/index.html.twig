@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Galerie{% endblock %}
+
+{% block content %}
+<h1 class="text-center p-5">GALERIE PHOTO</h1>
+
+<div class="container cont-gallery" id="#gallery">
+
+        <div class="gallery">
+            <div class="gallery-item">
+{% for image in images %}    
+                <img src="/uploads/{{ image.image }}" class="mb-2" alt="test">
+{% endfor %} 
+            </div>           
+        </div>
+
+        <div class="gallery">
+            <div class="gallery-item">
+{% for image in images %}    
+                <img src="/uploads/{{ image.image2 }}" class="mb-2" alt="test2">
+{% endfor %} 
+            </div>       
+        </div>
+
+        <div class="gallery">
+          <div class="gallery-item">
+{% for image in images %}    
+            <img src="/uploads/{{ image.image3 }}" class="mb-2" alt="test3">
+            {% endfor %} 
+          </div>  
+        </div>
+
+
+</div>
+
+          <div class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" src="" alt="">
+          </div>
+{% endblock %}
