@@ -1,0 +1,49 @@
+<header class="sticky-top">
+    <nav class="navbar navbar-light navbar-expand-lg ">
+        <a class="navbar-brand" href="{{path('app_home')}}"><img src="/assets/css/photos/logo.png" alt="logo" class="logo1"></a>
+        <a class="navbar-brand" href="{{path('app_home')}}"><b>Nordic Indiana</b></a>
+        <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                    <a class="nav-link" href="{{path('app_horde')}}">La meute</a>
+                </li><li class="nav-item active">
+                    <a class="nav-link" href="{{path('app_team')}}">Qui-suis je?</a>
+                </li><li class="nav-item active">
+                    <a class="nav-link" href="{{path('app_dog_activity')}}">Activités avec nos chiens nordiques</a>
+                </li><li class="nav-item active">
+                    <a class="nav-link" href="{{path('app_nature_experience')}}">Expériences Nature</a>
+                </li><li class="nav-item active">
+                    <a class="nav-link" href="{{path('app_gallery')}}">Galerie</a>
+                </li>
+                </li><li class="nav-item active">
+                    <a class="nav-link" href="{{path('app_movie')}}">Instant Nature</a>
+                </li>                
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{path('app_partners')}}">Partenaires</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{path('app_contact')}}">Contact</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{path('app_game')}}">Jeux</a>
+                </li>
+            </ul>
+            {% if app.user %} 
+            
+        <div class="navbar-item-custom">
+            <a href="{{ path('app_account') }}">Mon compte <small>({{ app.user.firstname}})</small></a> | <a href="{{ path('app_logout') }}">Deconnexion</a>
+            {% else %}
+            <a href="{{ path('app_login') }}" class="mr-2">Connexion</a> | <a href="{{ path('app_register') }}"class="ml-2">Inscription</a>
+            
+            {% endif %}  
+            
+        </div>
+        
+        </div>
+        
+    </nav>
+    <div class=""></div>
+</header>

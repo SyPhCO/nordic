@@ -1,59 +1,24 @@
-					{# {% if !empty %}
-							contenu normal
-						{% else %}
-							soyez le premier a nous faire partager votre expérience
-					{% endif %} #}
+
 					<div class="tab-pane fade pagination-link " id="contact-{{ product.id }}" role="tabpanel" aria-labelledby="contact-tab">
-						<div class="comments-list">
+						<div class="comments-list" >
 							{% for comments in commentsByProduct %}
 								{% if (comments[0] == product.id) %}
 									{% for comment in comments[1] %}
-										{% if (comment[0] == comments[2]) %}
-											<div class="row mt-3 justify-content-center p-4">
-												<h2 class="col-md-12 text-center fw-bolder">{{comment[1].author}}</h2>
-												<div class="gallery-item col-md-5">
-													<img src="/uploads/comments/{{ comment[1].illustration }}" class="mb-2 zoom" alt="test3">
+										{# {% if (comment[0] == comments[2]) %} #}
+										<h2 class="col-md-12 text-center fw-bolder "id="top-{{ product.id }}-top">{{comment[1].author}}</h2>
+											<div class= "d-flex mt-3 justify-content-center p-4">
+												
+												<div class="gallery-item col-md-5 d-block">
+													<img src="/uploads/comments/{{ comment[1].illustration }}" class="mb-2" alt="test3">
 												</div>
-												<div class="col-md-5">{{comment[1].comment}}</div>
+												<div class="col-md-5 d-block">{{comment[1].comment}}</div>
 											</div>
 
 											<hr>
-										{% endif %}
+										{# {% endif %} #}
 									{% endfor %}
 								{% endif %}
 							{% endfor %}
 						</div>
-						<nav aria-label="Page navigation example">
-							<ul class="pagination">
-								<li class="page-item">
-									<a class="page-link" href="#" aria-label="Previous">
-										<span aria-hidden="true">&laquo;</span>
-									</a>
-								</li>
-
-								{% for comments in commentsByProduct %}
-									{% if (comments[0] == product.id ) %}
-										{% for comment in comments[1] %}
-											 <li class="page-item" >
-												 <a class="page-link page-link-pagination" onclick="changePage({{ comments[0] }}, {{ comment[0] }})">{{ comment[0]}}</a>
-											</li> 
-										{% endfor %}
-									{% endif %}
-								{% endfor %}
-
-
-								<li class="page-item">
-									<a class="page-link" href="#" aria-label="Next">
-										<span aria-hidden="true">&raquo;</span>
-									</a>
-								</li>
-							</ul>
-						</nav>
-						{# 
-																								<nav class="pagination d-flex justify-content-center" id="pagination-link">
-																									<a class="pagination ">
-																										{{ knp_pagination_render(pagination) }}</a>
-																								</nav> #}
-
+						<a href="#top-{{ product.id }}-top" role="btn btn-block">Revenir en haut</a>
 					</div>
-                    

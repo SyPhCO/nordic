@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block carousel %}{% endblock %}
+{% block social %} {% endblock %}
+{% block content %} 
+  <div class="icon-scroll reveal">
+    <div class="mouse">
+      <div class="wheel"></div>
+    </div>
+    <div class="icon-arrows">
+      <span></span>
+    </div>
+  </div>
+
+    <div class="row acceuilStart">
+    <h1 class="text-center col-md-12 reveal">Activités a la Une ! </h1>
+      {% for product in products %}
+        <div class="col-md-4 mt-5 reveal">
+          {% include 'product/single_product.html.twig' %}
+        </div>
+      {% endfor %}
+    </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">Jeremy.<br> <span class="text-muted">Educateur sportif et Gérant.</span></h2>
+                <p class="lead">Petits et grands trappeurs, venez réveiller votre âme sauvage en partageant des activités avec nos chiens de traîneau dans le territoire du Haut Bugey.</p>
+            </div>
+            <div class="col-md-5">
+                <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="./assets/css/photos/jeremy2.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"></img>
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading">La meute.<br> <span class="text-muted">Huskies sibériens.</span></h2>
+                <p class="lead">Venez rencontrer nos huskies sibériens et découvrir leur vie de meute. Un moment inoubliable plein de papouilles et de léchouilles de la part de notre petite tribu canine.</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="./assets/css/photos/troupe.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"></img>
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7 ">
+                <h2 class="featurette-heading">Aurélie. <br> <span class="text-muted">Notre dog's Mum.</span></h2>
+                <p class="lead">Parce qu' Aurélie est notre "maman des chiens" et qu'elle s'occupe d'eux au quotidien, je voulais lui consacrer une petite présentation bien qu'elle ne fasse pas partie de la structure Nordic Indiana."..."je suis auxiliaire vétérinaire et m'intéresse beaucoup à la médecine vétérinaire des chiens de sports, notamment leurs soins, leurs pathologies spécifiques, la nutrition, le comportement de meute, l'élevage.</p>
+            </div>
+            <div class="col-md-5">
+                <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="./assets/css/photos/aurelie.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"></img>
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- /END THE FEATURETTES -->
+<div class="container cont-gallery" id="#gallery">
+
+        <div class="gallery">
+            <div class="gallery-item">
+{% for image in images %}    
+                <img src="/uploads/{{ image.image }}" class="mb-2" alt="test">
+{% endfor %} 
+            </div>           
+        </div>
+
+        <div class="gallery">
+            <div class="gallery-item">
+{% for image in images %}    
+                <img src="/uploads/{{ image.image2 }}" class="mb-2" alt="test2">
+{% endfor %} 
+            </div>       
+        </div>
+
+        <div class="gallery">
+          <div class="gallery-item">
+{% for image in images %}    
+            <img src="/uploads/{{ image.image3 }}" class="mb-2" alt="test3">
+            {% endfor %} 
+          </div>  
+        </div>
+
+
+</div>
+
+          <div class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" src="" alt="">
+          </div>
+{% endblock %}
+

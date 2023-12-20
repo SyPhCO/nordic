@@ -27,7 +27,7 @@ class DogActivityController extends AbstractController
     #[Route('/activités-avec-nos-chiens-nordiques', name: 'app_dog_activity')]
     public function index(Request $request, PaginatorInterface $paginator): Response
     {
-        $pagination = 1;
+        // $pagination = 1;
 
         $products = $this->entityManager->getRepository(Product::class)->findAll();
         $comments = $this->entityManager->getRepository(Comments::class)->findAll();
@@ -35,11 +35,7 @@ class DogActivityController extends AbstractController
 
         $commentsByProduct = array();
 
-        // $pagination = $paginator->paginate(
-        //     $commentsRepository->paginationQuery(),
-        //     $request->query->get('page', 1),
-        //     1
-        // );
+   
 
         foreach ($products as $product) {
             $idProduct = $product->getId();
@@ -56,10 +52,15 @@ class DogActivityController extends AbstractController
         return $this->render('dog_activity/index.html.twig', [
             'products' => $products,
             'commentsByProduct' => $commentsByProduct,
-            'pagination' =>$pagination
+            // 'pagination' =>$pagination
         ]);
     }
-
+    
+     // $pagination = $paginator->paginate(
+        //     $commentsRepository->paginationQuery(),
+        //     $request->query->get('page', 1),
+        //     1
+        // );
     // #[Route('/updateCommentPageByProduct/{idProductUpdate}/{index}', name: 'reset_app_dog_activity')]
     // public function maMethode(int $idProductUpdate, int $index)
     // {

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Instants Nature - Nordic Indiana
+{% endblock %}
+
+{% block content %}
+	<h1 class="text-center m-5">Instants Nature</h1>
+
+
+{% for movie in movies %}    
+<h2 class="fw-bold mt-5 mb-2 ml-5"> {{ movie.name }} </h2>
+<p class="text-muted fw-bold m-2"> {{ movie.description }} </p>
+	<div class="video-container mb-5">
+		<video src="./uploads/files/{{ movie.video }}" controls preload="metadata" class="video">
+			<source src="./uploads/files/{{ movie.video }}" controls type="video/mp4"></source>
+	</video>
+</div>
+<hr>
+	{# <div class="video-container">
+		<video src="/uploadsfiles/{{ movie.video }}" controls preload="metadata" class="video">
+			<source src="/uploads/files/{{ movie.video }}" controls type="video/mp4"></source>
+	</video>
+</div> #}
+                {# <img src="/uploads/{{ image.image }}" class="mb-2" alt="test"> #}
+{% endfor %} 
+{% endblock %}
