@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-
+use App\Entity\Product;
 use App\Entity\Gallery;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,9 +23,11 @@ class GalleryController extends AbstractController
     {
 
         $images = $this->entityManager->getRepository(Gallery::class)->findAll();
+        $activity = $this->entityManager->getRepository(Product::class)->findAll();
 
         return $this->render('gallery/index.html.twig', [
             'images' => $images,
+            'activity' => $activity
         ]);
     }
 }

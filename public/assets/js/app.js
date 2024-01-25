@@ -8,15 +8,11 @@ sr.reveal('h1', {
   origin: 'top',
   scale: 0.2,
 });
+sr.reveal('p', {
+  origin: 'top',
+  scale: 0.1,
+});
 
-sr.reveal('.row', {
-  origin: 'top',
-  scale: 0.2,
-});
-sr.reveal('.gallery img', {
-  origin: 'top',
-  scale: 0.2,
-});
 
 // memo start
 const cards = document.querySelectorAll(".cardGame")
@@ -235,3 +231,28 @@ function resetColor(e) {
   parentQuestionBlock.style.backgroundImage = "none";
 }
 // quiz end
+// diapo start
+function handleDiapoClick(event) {
+  var clickedLabel = event.target.closest('label');
+
+  // Vérifie si le label cliqué est présent
+  if (clickedLabel) {
+      // Supprime la classe active de tous les labels
+      var allLabels = document.querySelectorAll('#diapo label');
+      allLabels.forEach(function(label) {
+          label.classList.remove('active');
+      });
+
+      // Ajoute la classe active au label cliqué
+      clickedLabel.classList.add('active');
+  }
+}
+
+// Initialise le premier input radio de chaque produit avec l'attribut checked
+var productRadios = document.querySelectorAll('[id^="check1-"]');
+productRadios.forEach(function(radio) {
+  radio.checked = true;
+});
+
+// diapo end 
+

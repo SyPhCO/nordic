@@ -1,97 +1,104 @@
 {% extends 'base.html.twig' %}
 
-{% block carousel %}{% endblock %}
-{% block social %} {% endblock %}
-{% block content %} 
-  <div class="icon-scroll reveal">
-    <div class="mouse">
-      <div class="wheel"></div>
-    </div>
-    <div class="icon-arrows">
-      <span></span>
-    </div>
-  </div>
+{% block content %}
+{# {% include './components/_social.html.twig' %} #}
+	<h1 class="text-center col-md-12 reveal">Bienvenue sur Nordic Indiana
+	</h1>
+  <div class="d-flex justify-content-center mt-5">
+<img src="./assets/css/photos/logo.png" alt="icone de question" class="text-center">
+</div>
+	<!-- START THE FEATURETTES -->
 
-    <div class="row acceuilStart">
-    <h1 class="text-center col-md-12 reveal">Activités a la Une ! </h1>
-      {% for product in products %}
-        <div class="col-md-4 mt-5 reveal">
-          {% include 'product/single_product.html.twig' %}
-        </div>
-      {% endfor %}
-    </div>
+	<hr class="featurette-divider">
 
-        <hr class="featurette-divider">
+	<div class="start d-flex justify-content-center ">
+		<p class=" font-weight-bold text-center text-justify blockquote">Petits et grands trappeurs, venez réveiller votre âme sauvage
+			en partageant des activités avec nos chiens de traîneau
+			dans le territoire du Haut Bugey. <br>
+			Petits et grands aventuriers avides de sensations et de découverte,
+			des expériences nature d'initiation sportive vous attendent. <br>
+			Je vous invite à découvrir les différentes activités
+			dans les rubriques concernées,
+			et à me contacter pour organiser votre aventure.  <br>
+			Des événements thématiques vous seront régulièrement proposés. <br>
+			Pensez à suivre Nordic Indiana sur Facebook, pour découvrir notre actualité, et les surprises qui vous seront réservées au gré des saisons.
+		</p>
+	</div>
 
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading">Jeremy.<br> <span class="text-muted">Educateur sportif et Gérant.</span></h2>
-                <p class="lead">Petits et grands trappeurs, venez réveiller votre âme sauvage en partageant des activités avec nos chiens de traîneau dans le territoire du Haut Bugey.</p>
-            </div>
-            <div class="col-md-5">
-                <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="./assets/css/photos/jeremy2.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"></img>
-            </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-            <div class="col-md-7 order-md-2">
-                <h2 class="featurette-heading">La meute.<br> <span class="text-muted">Huskies sibériens.</span></h2>
-                <p class="lead">Venez rencontrer nos huskies sibériens et découvrir leur vie de meute. Un moment inoubliable plein de papouilles et de léchouilles de la part de notre petite tribu canine.</p>
-            </div>
-            <div class="col-md-5 order-md-1">
-                <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="./assets/css/photos/troupe.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"></img>
-            </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-            <div class="col-md-7 ">
-                <h2 class="featurette-heading">Aurélie. <br> <span class="text-muted">Notre dog's Mum.</span></h2>
-                <p class="lead">Parce qu' Aurélie est notre "maman des chiens" et qu'elle s'occupe d'eux au quotidien, je voulais lui consacrer une petite présentation bien qu'elle ne fasse pas partie de la structure Nordic Indiana."..."je suis auxiliaire vétérinaire et m'intéresse beaucoup à la médecine vétérinaire des chiens de sports, notamment leurs soins, leurs pathologies spécifiques, la nutrition, le comportement de meute, l'élevage.</p>
-            </div>
-            <div class="col-md-5">
-                <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="./assets/css/photos/aurelie.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"></img>
-            </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <!-- /END THE FEATURETTES -->
-<div class="container cont-gallery" id="#gallery">
-
-        <div class="gallery">
-            <div class="gallery-item">
-{% for image in images %}    
-                <img src="/uploads/{{ image.image }}" class="mb-2" alt="test">
-{% endfor %} 
-            </div>           
-        </div>
-
-        <div class="gallery">
-            <div class="gallery-item">
-{% for image in images %}    
-                <img src="/uploads/{{ image.image2 }}" class="mb-2" alt="test2">
-{% endfor %} 
-            </div>       
-        </div>
-
-        <div class="gallery">
-          <div class="gallery-item">
-{% for image in images %}    
-            <img src="/uploads/{{ image.image3 }}" class="mb-2" alt="test3">
-            {% endfor %} 
-          </div>  
-        </div>
-
+  <div class="row mb-5">
+  {% for product in products %}
+    {% if product.isBest %}
+    <h1 class="text-center col-md-12 reveal">Activité à la Une ! </h1>
+      <div class="col-md-4 mt-5 reveal">
+        {% include 'product/single_product.html.twig' %}
+      </div>
+    {% endif %}
+  {% endfor %}
 
 </div>
+	<div class="cont-gallery" id="gallery">
 
-          <div class="modal">
-            <span class="close">&times;</span>
-            <img class="modal-content" src="" alt="">
-          </div>
+		<div class="gallery">
+			<div class="gallery-item">
+				{% for image in images %}
+					<img src="/uploads/{{ image.image }}" class="mb-2 galeryPict" alt="test" data-toggle="modal" data-target="#modal">
+				{% endfor %}
+			</div>
+		</div>
+
+		<div class="gallery">
+			<div class="gallery-item">
+				{% for image in images %}
+					<img src="/uploads/{{ image.image2 }}" class="mb-2 galeryPict" alt="test2" data-toggle="modal" data-target="#modal">
+				{% endfor %}
+			</div>
+		</div>
+
+		<div class="gallery">
+			<div class="gallery-item">
+				{% for image in images %}
+					<img src="/uploads/{{ image.image3 }}" class="mb-2 galeryPict" alt="test3" data-toggle="modal" data-target="#modal">
+				{% endfor %}
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Single Modal for all images -->
+	<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title text-center" id="modalLabel">Galerie Photos</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div id="carousel" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner">
+
+							{% for image in images %}
+								<div class="carousel-item active ">
+									<img src="/uploads/{{ image.image }}" class="d-block w-100 mt-2" alt="test">
+									<button type="button" class="close bg-light p-1" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									<img src="/uploads/{{ image.image2 }}" class="d-block w-100 mt-2" alt="test">
+									<button type="button" class="close bg-light p-1" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									<img src="/uploads/{{ image.image3 }}" class="d-block w-100 mt-2" alt="test">
+									<button type="button" class="close  bg-light p-1" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+							{% endfor %}
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}
-

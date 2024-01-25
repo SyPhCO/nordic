@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
@@ -29,7 +30,7 @@ class TeamCrudController extends AbstractCrudController
             ->setUploadDir('public/uploads')
             ->setUploadedFileNamePattern('[randomhash].[extension]')
             ->setRequired(false), 
-            TextEditorField::new('description'),
+            TextareaField::new('description'),
             BooleanField::new('header'),
             imageField::new('gallery')
             ->setBasePath('uploads/')
@@ -47,6 +48,16 @@ class TeamCrudController extends AbstractCrudController
             ->setUploadedFileNamePattern('[randomhash].[extension]')
             ->setRequired(false),
             imageField::new('gallery4')
+            ->setBasePath('uploads/')
+            ->setUploadDir('public/uploads')
+            ->setUploadedFileNamePattern('[randomhash].[extension]')
+            ->setRequired(false),
+            imageField::new('gallery5')
+            ->setBasePath('uploads/')
+            ->setUploadDir('public/uploads')
+            ->setUploadedFileNamePattern('[randomhash].[extension]')
+            ->setRequired(false),
+            imageField::new('gallery6')
             ->setBasePath('uploads/')
             ->setUploadDir('public/uploads')
             ->setUploadedFileNamePattern('[randomhash].[extension]')

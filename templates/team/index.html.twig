@@ -1,39 +1,51 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello TeamController!
+{% block title %}Qui suis-je ? 
 {% endblock %}
 
 {% block content %}
 	{% for team in teams %}
-		<div class="row d-flex featurette mt-5 justify-content-center">
-
-			{# mettre un bouton de retour en arriere sur les zoom #}
-			<div class="col-md-12">
-				<h2 class="featurette-heading">{{ team.name }}<br>
-					<span class="text-muted">{{ team.role }}</span>
-				</h2>
-				{% if (team.header == 1) %}
-						<img class="teamimg mt-4"  src="/uploads/{{ team.illustration }}" width="400"/>
-				{% endif %}
-				<p class="lead">{{ team.description }}</p>
-			</div>
-
-			<div class="col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-2 d-flex justify-content-center imgzoom">
-					<img class="teamimg"  src="/uploads/{{ team.gallery }}" width="400"/>
-			</div>
-			<div class="col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-2 d-flex justify-content-center imgzoom">
-					<img class="teamimg"  src="/uploads/{{ team.gallery2 }}" width="400"/>
-			</div>
-			<div class="col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-2 d-flex justify-content-center imgzoom">
-					<img class="teamimg "  src="/uploads/{{ team.gallery3 }}" width="400"/>
-
-			</div>
-			<div class="col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-2 d-flex justify-content-center imgzoom">
-					<img class="teamimg"  src="/uploads/{{ team.gallery4 }}" width="400"/>
-			</div>
-			<hr class="featurette-divider">
-
+<hr>
+<h1 class="text-center">{{ team.name}}</h1>
+<div class="row"> 
+	<div class="col-lg-2 col-sm-12 container d-flex flex-column justify-content-center text-center">
+		<div class="mt-5 actiGal">
+			<img src="/uploads/{{ team.gallery }}" alt="{{ team.name }}" class="img-fluid">
 		</div>
+		<div class="mt-5 actiGal">
+			<img src="/uploads/{{ team.gallery2 }}" alt="{{ team.name }}" class="img-fluid">
+		</div>
+		<div class="mt-5 actiGal">
+			<img src="/uploads/{{ team.gallery3 }}" alt="{{ team.name }}" class="img-fluid">
+		</div>
+
+	</div>
+
+	<div class="col-lg-8 col-sm-12 mt-5">
+		<div class="col-md-8 mt-5">
+			<img src="/uploads/{{ team.illustration }}" alt="{{ team.name }}" class="img-fluid">
+		</div>
+
+				
+			<hr>
+			<p>{{ team.description|nl2br|raw }}
+			</p>
+
+	</div>
+	<div class="col-lg-2 col-sm-12 container d-flex flex-column justify-content-center text-center">
+		<div class=" mt-5 actiGal">
+			<img src="/uploads/{{ team.gallery4 }}" alt="{{ team.name }}" class="img-fluid">
+		</div>
+		<div class="mt-5 actiGal">
+			<img src="/uploads/{{ team.gallery5 }}" alt="{{ team.name }}" class="img-fluid">
+		</div>
+		<div class="mt-5 actiGal">
+			<img src="/uploads/{{ team.gallery6 }}" alt="{{ team.name }}" class="img-fluid">
+		</div>
+	</div>
+</div>
+
+
 	{% endfor %}
 
 

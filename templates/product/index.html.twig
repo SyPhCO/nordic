@@ -1,32 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos activités{% endblock %}
+{% block title %}Nos activités
+{% endblock %}
 
 {% block content %}
-<div class="row">
-<h1 class="col-md-12 text-center mt-5 mb-3">Bon Cadeau </h1>
-<p class="col-md-12 text-center">Vous souhaitez faire un cadeau innoubliable et qui sort de l'ordinaire ?</p>
-<p class="col-md-12 text-center">Vous souhaitez simplement vivre vous même une expérience extraordinaire ?</p>
+	<div class="row">
+		<h1 class="col-md-12 text-center mt-5 mb-3">Nos Activités</h1>
 
+		{% for product in products %}
+			<div class="d-flex">
+				<div class="actiBlock d-block mb-3">
+					<a href="{{ path('app_product', { 'slug' : product.slug }) }}" class="d-flex align-items-center justify-content-center">
+						<img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}" class="presentation">
+						<h6 class="fw-bold">{{ product.name }}</h6>
+					</a>
+				</div>
+			</div>
+		{% endfor %}
 
+	{% endblock %}
+                                                                {# test de navbar  #}
 
-
-    <div class="col-md-3">
-        <h1 class="mt-5 mb-5 text-center">Filtrer</h1>
-        {{ form(form) }}
-    </div>
-
-    <div class="col-md-9">
-            <h1 class='mt-5 text-center mb-5'>Nos Activités </h1>
-        <div class="row">
-        {% for product in products %}
-                <div class="col-md-4">
-                    {% include 'product/single_product.html.twig' %}
-                </div>
-        {% endfor %}
-        </div>
-    </div>
-</div>
-
-    
-{% endblock %}

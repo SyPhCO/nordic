@@ -31,7 +31,7 @@ class Product
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\Column]
+    #[ORM\Column( nullable: true)]
     private ?float $price = null;
 
     #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'products')]
@@ -63,6 +63,15 @@ class Product
 
     #[ORM\OneToMany(mappedBy: 'activity', targetEntity: Comments::class)]
     private Collection $comments;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $place = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $age = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $rate = null;
 
 
     public function __construct()
@@ -295,6 +304,42 @@ class Product
                 $comment->setActivity(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPlace(): ?string
+    {
+        return $this->place;
+    }
+
+    public function setPlace(?string $place): self
+    {
+        $this->place = $place;
+
+        return $this;
+    }
+
+    public function getAge(): ?string
+    {
+        return $this->age;
+    }
+
+    public function setAge(?string $age): self
+    {
+        $this->age = $age;
+
+        return $this;
+    }
+
+    public function getRate(): ?string
+    {
+        return $this->rate;
+    }
+
+    public function setRate(?string $rate): self
+    {
+        $this->rate = $rate;
 
         return $this;
     }

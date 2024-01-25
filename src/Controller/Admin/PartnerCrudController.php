@@ -21,6 +21,7 @@ class PartnerCrudController extends AbstractCrudController
     {
         return [
             TextField::new('name'),
+            SlugField::new('slug')->setTargetFieldName('name')->hideOnIndex(),
             ImageField::new('illustration')
             ->setBasePath('uploads/')
             ->setUploadDir('public/uploads')
@@ -28,6 +29,8 @@ class PartnerCrudController extends AbstractCrudController
             ->setRequired(false),
             TextareaField::new('description'),
             TextareaField::new('contact'),
+            TextField::new('btnTitle', 'Titre du bouton ( intérieur du bouton )'),
+            TextField::new('btnUrl', 'Liens vers lequel renvoie le bouton ( Url de destination )'),
             imageField::new('gallery')
             ->setBasePath('uploads/')
             ->setUploadDir('public/uploads')

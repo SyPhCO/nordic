@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-
+use App\Entity\Product;
 use App\Entity\Comments;
 use App\Form\CommentsType;
 use DateTimeImmutable;
@@ -27,7 +27,7 @@ class LetCommentController extends AbstractController
     public function index(Request $request, SluggerInterface $slugger): Response
     {
         $notification = null;
-
+        $activity = $this->entityManager->getRepository(Product::class)->findAll();
         $comments = new Comments();
         $form = $this->createForm(CommentsType::class, $comments);
         $form->handleRequest($request);
@@ -58,7 +58,8 @@ class LetCommentController extends AbstractController
 
         return $this->render('let_comment/index.html.twig', [
             'form' => $form->createView(),
-            'notification' => $notification
+            'notification' => $notification,
+            'activity' => $activity
         ]);
     }
 }

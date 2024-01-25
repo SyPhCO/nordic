@@ -1,7 +1,7 @@
 <?php
  
  namespace App\Controller;
-
+ use App\Entity\Product;
 use App\Classe\Mail;
 use App\Entity\User;
  use App\Form\RegisterType;
@@ -25,6 +25,7 @@ use Symfony\Component\Routing\Annotation\Route;
      {
         $notification = null; 
          $user =new User();
+         $activity = $this->entityManager->getRepository(Product::class)->findAll();
          $form = $this->createForm( RegisterType::class, $user);
          $form->handleRequest($request);
          if($form->isSubmitted() && $form->isValid()){
@@ -58,6 +59,7 @@ use Symfony\Component\Routing\Annotation\Route;
          return $this->render('register/index.html.twig', [
   
          'form'=> $form->createView(),
+         'activity' => $activity,
          'notification' => $notification
      ]);
      }

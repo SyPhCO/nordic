@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use DateTime;
+use App\Entity\Product;
 use App\Classe\Mail;
 use App\Entity\User;
 use App\Entity\ResetPassword;
@@ -26,8 +27,7 @@ class ResetPasswordController extends AbstractController
     #[Route('/mot-de-passe-oublie', name: 'app_reset_password')]
     public function index(Request $request): Response
     {
-
-        
+        $activity = $this->entityManager->getRepository(Product::class)->findAll();
 
         if ($this->getUser()){
             return $this->redirectToRoute('app_home');
@@ -62,13 +62,17 @@ class ResetPasswordController extends AbstractController
             }
         }
 
-        return $this->render('reset_password/index.html.twig');
+        return $this->render('reset_password/index.html.twig',[
+            'activity' => $activity,
+
+        ]);
     }
 
     #[Route('/modifier-mon-mot-de-passe/{token}', name: 'app_update_password')]
     public function update(Request $request, $token, UserPasswordHasherInterface $hasher)
     {
         $reset_password = $this->entityManager->getRepository(ResetPassword::class)->findOneByToken($token);
+        $activity = $this->entityManager->getRepository(Product::class)->findAll();
 
         if(!$reset_password){
             return $this->redirectToRoute('app_reset_password');
@@ -96,7 +100,8 @@ class ResetPasswordController extends AbstractController
         }
         
         return $this->render('reset_password/update.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'activity' => $activity
         ]);
     }
 }

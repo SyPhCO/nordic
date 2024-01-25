@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-
+use App\Entity\Product;
 use App\Form\ChangePasswordType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,6 +23,7 @@ class AccountPasswordController extends AbstractController
     {
 
         $notification = null; 
+        $activity = $this->entityManager->getRepository(Product::class)->findAll();
 
         $user = $this->getUser();
         $form = $this->createForm(ChangePasswordType::class, $user);
@@ -46,6 +47,7 @@ class AccountPasswordController extends AbstractController
 
         return $this->render('account/password.html.twig', [
             'form' => $form->createView(),
+            'activity' => $activity,
             'notification' => $notification
         ]);
     }

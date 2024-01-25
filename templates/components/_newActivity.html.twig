@@ -1,0 +1,9 @@
+
+   <div class="row ">
+    <h1 class="text-center col-md-12 reveal">Activités a la Une ! </h1>
+      {% for product in products %}
+        <div class="col-md-4 mt-5 reveal">
+          {% include 'product/single_product.html.twig' %}
+        </div>
+      {% endfor %}
+    </div>

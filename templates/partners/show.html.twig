@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Partenaires
+{% endblock %}
+
+{% block content %}
+
+<div class="mt-5">
+<hr>
+		<h1 class="text-center">{{ partner.name}}</h1>
+		<div class="row">
+			<div class="col-lg-2 col-xs-12 container d-flex flex-column justify-content-center text-center">
+				<div class="mt-5 actiGal">
+					<img src="/uploads/{{ partner.gallery }}" alt="{{ partner.name }}" class="img-fluid">
+				</div>
+				<div class="mt-5 actiGal">
+					<img src="/uploads/{{ partner.gallery2 }}" alt="{{ partner.name }}" class="img-fluid">
+				</div>
+				<div class="mt-5 actiGal">
+					<img src="/uploads/{{ partner.gallery3 }}" alt="{{ partner.name }}" class="img-fluid">
+				</div>
+
+			</div>
+
+			<div class="col-lg-8 col-sm-12 mt-5">
+
+				<div class="col-md-8 mt-5">
+					<img src="/uploads/{{ partner.illustration }}" alt="{{ partner.name }}" class="img-fluid">
+				</div>
+				<div class="col-12 my-auto">
+
+					<hr>
+					<p>{{ partner.description|nl2br|raw }}
+					</p>
+					<p class="text-center">
+						<a class="btn btn-lg btn-info" href="{{ partner.btnUrl }}" role="button" target="_blank">{{ partner.btnTitle }}</a>
+					</p>
+				</div>
+
+			</div>
+			<div class="col-lg-2 col-sm-12 container d-flex flex-column justify-content-center text-center">
+				<div class=" mt-5 actiGal">
+					<img src="/uploads/{{ partner.gallery4 }}" alt="{{ partner.name }}" class="img-fluid">
+				</div>
+				<div class="mt-5 actiGal">
+					<img src="/uploads/{{ partner.gallery5 }}" alt="{{ partner.name }}" class="img-fluid">
+				</div>
+				<div class="mt-5 actiGal">
+					<img src="/uploads/{{ partner.gallery6 }}" alt="{{ partner.name }}" class="img-fluid">
+				</div>
+			</div>
+		</div>
+		</div>
+
+
+{% endblock %}

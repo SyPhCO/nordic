@@ -24,6 +24,7 @@ class ProductController extends AbstractController
     {
         $search = new Search();
         $form = $this->createForm(SearchType::class , $search);
+        $activity = $this->entityManager->getRepository(Product::class)->findAll();
 
         $form->handleRequest($request);
 
@@ -35,7 +36,9 @@ class ProductController extends AbstractController
 
         return $this->render('product/index.html.twig', [
             'products' => $products,
-            'form' => $form->CreateView()
+            'form' => $form->CreateView(),
+            'activity' => $activity,
+
         ]);
     }
 
@@ -45,6 +48,7 @@ class ProductController extends AbstractController
 
         $product = $this->entityManager->getRepository(Product::class)->findOneBySlug($slug);
         $products = $this->entityManager->getRepository(Product::class)->findByIsBest(1);
+        $activity = $this->entityManager->getRepository(Product::class)->findAll();
 
         if(!$product){
             return $this->redirectToRoute('app_products');
@@ -52,7 +56,9 @@ class ProductController extends AbstractController
 
         return $this->render('product/show.html.twig', [
             'product' => $product,
-            'products' => $products
+            'products' => $products,
+            'activity' => $activity,
+
         ]);
     }
 }

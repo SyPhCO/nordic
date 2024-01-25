@@ -52,40 +52,8 @@ class DogActivityController extends AbstractController
         return $this->render('dog_activity/index.html.twig', [
             'products' => $products,
             'commentsByProduct' => $commentsByProduct,
-            // 'pagination' =>$pagination
+
         ]);
     }
-    
-     // $pagination = $paginator->paginate(
-        //     $commentsRepository->paginationQuery(),
-        //     $request->query->get('page', 1),
-        //     1
-        // );
-    // #[Route('/updateCommentPageByProduct/{idProductUpdate}/{index}', name: 'reset_app_dog_activity')]
-    // public function maMethode(int $idProductUpdate, int $index)
-    // {
-    //     $products = $this->entityManager->getRepository(Product::class)->findAll();
-    //     $comments = $this->entityManager->getRepository(Comments::class)->findAll();
 
-    //     $commentsByProduct = array();
-
-    //     foreach ($products as $product) {
-    //         $idProduct = $product->getId();
-    //         $commentsId = array();
-    //         $i = 1;
-    //         foreach($comments as $comment) {
-    //             if($comment->getActivity()->getId() == $idProduct && $comment->isIsValid()) {
-    //                 array_push($commentsId, [$i++, $comment]);
-    //             }
-    //         }
-
-    //         if($idProductUpdate == $idProduct)
-    //             array_push($commentsByProduct, [$idProduct, $commentsId, $index]);
-    //         else
-    //             array_push($commentsByProduct, [$idProduct, $commentsId, 1]);
-    //     }
-
-    //     $data = ['message' => 'Ceci est une réponse JSON via AJAX ', $commentsByProduct];
-    //     return new JsonResponse($data);
-    // }
 }

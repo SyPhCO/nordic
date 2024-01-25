@@ -5,12 +5,12 @@ namespace App\Controller\Admin;
 use App\Entity\Team;
 use App\Entity\User;
 use App\Entity\Horde;
-use App\Entity\Header;
 use App\Entity\Gallery;
 use App\Entity\Partner;
 use App\Entity\Product;
 use App\Entity\Category;
 use App\Entity\Comments;
+use App\Entity\Contact;
 use App\Entity\GalleryLanding;
 use App\Entity\Movie;
 use Symfony\Component\HttpFoundation\Response;
@@ -56,7 +56,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Utilisateur', 'fas fa-user', User::class);
         yield MenuItem::linkToCrud('Categories', 'fas fa-list', Category::class);
         yield MenuItem::linkToCrud('Activités', 'fas fa-tag', Product::class);
-        yield MenuItem::linkToCrud('Caroussel', 'fa fa-image', Header::class);
         yield MenuItem::linkToCrud('Meute', 'fa fa-dog', Horde::class);
         yield MenuItem::linkToCrud('Equipe', 'fa fa-person', Team::class);
         yield MenuItem::linkToCrud('Gallerie', 'fa fa-image', Gallery::class);
@@ -64,6 +63,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Partenaire', 'fa fa-handshake', Partner::class);
         yield MenuItem::linkToCrud('Commentaires', 'fa fa-check', Comments::class);
         yield MenuItem::linkToCrud('Film', 'fa fa-video', Movie::class);
+        yield MenuItem::linkToCrud('Email', 'fa fa-envelope', Contact::class);
 
     }
 }

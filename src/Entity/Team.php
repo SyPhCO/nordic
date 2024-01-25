@@ -32,6 +32,7 @@ class Team
     #[ORM\Column(length: 255)]
     private ?string $role = null;
     
+    
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $gallery = null;
 
@@ -43,6 +44,12 @@ class Team
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $gallery4 = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $gallery5 = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $gallery6 = null;
 
     public function getId(): ?int
     {
@@ -165,6 +172,28 @@ class Team
     public function setGallery4(?string $gallery4): self
     {
         $this->gallery4 = $gallery4;
+
+        return $this;
+    }
+    public function getGallery5(): ?string
+    {
+        return $this->gallery5;
+    }
+
+    public function setGallery5(?string $gallery5): self
+    {
+        $this->gallery5 = $gallery5;
+
+        return $this;
+    }
+    public function getGallery6(): ?string
+    {
+        return $this->gallery6;
+    }
+
+    public function setGallery6(?string $gallery6): self
+    {
+        $this->gallery6 = $gallery6;
 
         return $this;
     }

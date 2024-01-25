@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Retour d'éxpériences{% endblock %}
+
+{% block content %}
+<h1 class="text-center m-5">Retour d'éxpérience :</h1>
+			<div class="d-flex flex-row row comments">
+			
+				{% for comment in comments %}
+
+
+								<div class="d-block col-lg-6 col-md-6 col-sm-12 text-center" >
+									<h2 class="col-md-12 commentTilte" >{{comment.author}}</h2>
+									<div class="gallery-item col-md-12  d-block">
+										<img src="/uploads/comments/{{ comment.illustration }}" class="mb-2" alt="test3" loading="lazy">
+									</div>
+									<div class=" d-block">{{comment.comment}}</div>
+								</div>
+
+				{% endfor %}
+			</div>
+		</div>
+
+{% endblock %}

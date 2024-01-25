@@ -4,97 +4,78 @@
 {% endblock %}
 
 {% block content %}
-
-	<h1 class="text-center mt-5">Activités avec nos chiens nordiques</h1>
-
 {% for product in products %}
-		
-		<div class="productBlock container border">
-			<div class="row">
-				<h1 class="col-12 text-center mb-3 mt-5">{{ product.name }}</h1>
-				<div class="col-md-4">
-					<a href="{{ path('app_product', { 'slug' : product.slug }) }}">
-						<img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}" loading="lazy" class="img-thumbnail rounded" width="400" height="400" data-lightbox="imgGLR">
-					</a>
-				</div>
-				<div class="col-md-8 font-weight-bold text-center d-flex m-auto " height="400">{{ product.description }}</div>
+	
 
-				<hr class="mt-2 mb-2">
+<h1 class="text-center">{{ product.name}}</h1>
+<div class="row"> 
+	<div class="col-lg-2 col-sm-12 container d-flex flex-column justify-content-center">
+		<div class="mt-5 actiGal">
+			<img src="/uploads/{{ product.gallery }}" alt="{{ product.name }}" class="img-fluid">
+		</div>
+		<div class="mt-5 actiGal">
+			<img src="/uploads/{{ product.gallery2 }}" alt="{{ product.name }}" class="img-fluid">
+		</div>
+		<div class="mt-5 actiGal">
+			<img src="/uploads/{{ product.gallery3 }}" alt="{{ product.name }}" class="img-fluid">
+		</div>
 
-				<div class="col-md-4 d-flex m-auto d-flex justify-content-center ">
-					<div class="product-price font-weight-bold  ">
-						{{ (product.price / 100)|number_format(2, ',', '.') }}
-						€
-					</div>
-				</div>
-				<div class="col-md-8 text-center">
-					<span class="product-subtitle ">{{ product.subtitle }}</span>
-					<br>
-					
-				</div><hr class="hrP">
-			</div>
+	</div>
+
+	<div class="col-lg-8 col-sm-12 mt-5">
+ <p>{{ product.subtitle }}</p>
+		<div class="col-md-8 mt-5">
+			<img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}" class="img-fluid">
+		</div>
+		<div class="col-12 my-auto">
 			
-			<div id="diapo">
-
-				<div>
-					<input type="radio" id="check1-{{ product.id }}" name="check" class="r_check" checked="checked">
-					<label for="check1-{{ product.id }}" class="on_check">
-						<img class="vignette active" src="/uploads/{{ product.gallery }}" alt="Vignette descrivant le produit" loading="lazy">
-					</label>
-					<img class="big_image active" src="/uploads/{{ product.gallery }}" alt="Vignette descrivant le produit grand format" loading="lazy"></div>
-
-
-				<div>
-					<input type="radio" id="check2-{{ product.id }}" name="check" class="r_check">
-					<label for="check2-{{ product.id }}" class="on_check">
-						<img class="vignette" src="/uploads/{{ product.gallery2 }}" alt="Vignette descrivant le produit" loading="lazy">
-					</label>
-					<img class="big_image" src="/uploads/{{ product.gallery2 }}" alt="Vignette descrivant le produit grand format" loading="lazy"></div>
-
-				<div>
-					<input type="radio" id="check3-{{ product.id }}" name="check" class="r_check">
-					<label for="check3-{{ product.id }}" class="on_check">
-						<img class="vignette" src="/uploads/{{ product.gallery3 }}" alt="Vignette descrivant le produit" loading="lazy">
-					</label>
-					<img class="big_image" src="/uploads/{{ product.gallery3 }}" alt="Vignette descrivant le produit grand format" loading="lazy">
-				</div>
-
-				<div>
-					<input type="radio" id="check4-{{ product.id }}" name="check" class="r_check">
-					<label for="check4-{{ product.id }}" class="on_check">
-						<img class="vignette" src="/uploads/{{ product.gallery4 }}" alt="Vignette descrivant le produit" loading="lazy">
-					</label>
-					<img class="big_image" src="/uploads/{{ product.gallery4 }}" alt="Vignette descrivant le produit grand format" loading="lazy">
-				</div>
-
-				<div>
-					<input type="radio" id="check5-{{ product.id }}" name="check" class="r_check">
-					<label for="check5-{{ product.id }}" class="on_check">
-						<img class="vignette" src="/uploads/{{ product.gallery5 }}" alt="Vignette descrivant le produit" loading="lazy">
-					</label>
-					<img class="big_image" src="/uploads/{{ product.gallery5 }}" alt="Vignette descrivant le produit grand format" loading="lazy">
-				</div>
-				
-			</div>
-<hr class="hrP">
-			<div class="d-flex flex-row row comments">
 			
-				{% for comments in commentsByProduct %}
-					{% if (comments[0] == product.id) %}
-						{% for comment in comments[1] %}
-								<div class="d-block col-md-4 col-sm-6 text-center" >
-									<h4 class="col-md-12 text-center fw-bolder " id="top-{{ product.id }}-top">{{comment[1].author}}</h4>
-									<div class="gallery-item col-md-12  d-block">
-										<img src="/uploads/comments/{{ comment[1].illustration }}" class="mb-2" alt="test3" loading="lazy">
-									</div>
-									<div class=" d-block scrollbar" id="style-9">{{comment[1].comment}}</div>
-								</div>
-						{% endfor %}
-					{% endif %}
-				{% endfor %}
-			</div>
-		</div><hr class="text-light bold">
-	{% endfor %}
+			<hr>
+			<p>{{ product.description|nl2br|raw }}
+			</p>
+		</div>
+		<div class="container">
+			<p class="actiTitle">Tarif :
+			</p>
+			<p>
+				{{ product.rate|nl2br|raw }}
+			</p>
+		</div>
+		<div class="container">
+			<p class="actiTitle">Age :
+			</p>
+			<p>
+				{{ product.age|nl2br|raw }}
+			</p>
+		</div>
+		<div class="container">
+			<p class="actiTitle">Lieu :
+			</p>
+			<p>
+				{{ product.place|nl2br|raw }}
+			</p>
+		</div>
+		{# <div class="col-md-12">
+				        descriptif prix sur le site de base
+				        </div> #}
+	</div>
+	<div class="d-flex flex-column ">
+		<div class=" mt-5 actiGal">
+			<img src="/uploads/{{ product.gallery4 }}" alt="{{ product.name }}" class="img-fluid">
+		</div>
+		<div class="mt-5 actiGal">
+			<img src="/uploads/{{ product.gallery5 }}" alt="{{ product.name }}" class="img-fluid">
+		</div>
+		<div class="mt-5 actiGal">
+			<img src="/uploads/{{ product.gallery6 }}" alt="{{ product.name }}" class="img-fluid">
+		</div>
+	</div>
+</div>
 
+  <div class="container mt-5">
+    <p>Venez voir la meute complète et le paradis blanc :</p>
+    <a href="{{ path('app_horde') }}" class="btn btn-primary btn-lg">La meute</a>
+  </div>
+{% endfor %}
 {% endblock %}
 

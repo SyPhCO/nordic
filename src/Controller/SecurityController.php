@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Controller;
+use App\Entity\Product;
+use Doctrine\ORM\EntityManagerInterface;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -9,9 +11,18 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
+    private $entityManager; 
+
+    public function __construct(EntityManagerInterface $entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
+
     #[Route(path: '/connexion', name: 'app_login')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
+        $activity = $this->entityManager->getRepository(Product::class)->findAll();
+
         if ($this->getUser()) {
             return $this->redirectToRoute('app_account');
         }
@@ -21,7 +32,12 @@ class SecurityController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        return $this->render('security/login.html.twig', [
+            'last_username' => $lastUsername,
+             'error' => $error,
+             'activity' => $activity,
+
+            ]);
     }
 
     #[Route(path: '/deconnexion', name: 'app_logout')]

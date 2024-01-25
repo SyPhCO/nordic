@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-
+use App\Entity\Product;
 use App\Entity\Team;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,9 +23,12 @@ class TeamController extends AbstractController
     {
 
         $teams = $this->entityManager->getRepository(Team::class)->findAll();
+        $activity = $this->entityManager->getRepository(Product::class)->findAll();
 
         return $this->render('team/index.html.twig',[
-            'teams' => $teams
+            'teams' => $teams,
+            'activity' => $activity,
+
         ] );
     }
 }

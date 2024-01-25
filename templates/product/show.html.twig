@@ -1,39 +1,71 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ product.name }}{% endblock %}
+{% block title %}
+	{{ product.name }}
+{% endblock %}
 
 {% block content %}
 
-    <div class="row mt-5">
-        <div class="col-md-5 mt-5">
-            <img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}" class="img-fluid">
-        </div>
-        <div class="col-md-7 my-auto">
-            <h1>{{ product.name}}</h1>
-            <p>{{ product.subtitle }}</p>
-            <span class="product-price font-weight-bold">A partir de: {{ (product.price / 100)|number_format(2, ',', '.') }} €</span>
-            <hr>
-            <p>{{ product.description }} </p>
-            <a href="{{ path('app_add_to_cart', {'id' : product.id }) }}" class="btn btn-primary">Ajouter au panier</a>
-        </div>
+<h1 class="text-center">{{ product.name}}</h1>
+<div class="row"> 
+	<div class="col-lg-2 col-sm-12 container d-flex flex-column justify-content-center text-center">
+		<div class=" mt-5 actiGal">
+			<img src="/uploads/{{ product.gallery }}" alt="{{ product.name }}" class="img-fluid">
+		</div>
+		<div class="mt-5 actiGal">
+			<img src="/uploads/{{ product.gallery2 }}" alt="{{ product.name }}" class="img-fluid">
+		</div>
+		<div class="mt-5 actiGal">
+			<img src="/uploads/{{ product.gallery3 }}" alt="{{ product.name }}" class="img-fluid">
+		</div>
+	</div>
 
-        {# <div class="col-md-12">
-        descriptif prix sur le site de base
-        </div> #}
-    </div>
-    <hr>
-    <div class="row">
-    <h3 class=" col-md-12">Jetez un oeil sur nos activités à la Une ! </h3>
-      {% for product in products %}
-        <div class="col-md-4">
-          <div class="product-item text-center ">
-                        <a href="{{ path('app_product', { 'slug' : product.slug }) }}"><img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}" class="figure-img img-fluid img-thumbnail" style="max-width: 10rem; max-height: 10rem"></a>
-                        <h4>{{ product.name }}</h4>
-                        <span class="product-subtitle">{{ product.subtitle }}</span>
-                    </div>
-        </div>
-      {% endfor %}
-    </div>
+	<div class="col-lg-8 col-sm-12 mt-5">
+ <p>{{ product.subtitle }}</p>
+		<div class="col-12 mt-5 text-center">
+			<img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}" class="img-fluid">
+		</div>
+		<div class="col-12 my-auto">
+			
+			
+			<hr>
+			<p>{{ product.description|nl2br|raw }}
+			</p>
+		</div>
+		<div class="container">
+			<p class="actiTitle">Tarif :
+			</p>
+			<p>
+				{{ product.rate|nl2br|raw }}
+			</p>
+		</div>
+		<div class="container">
+			<p class="actiTitle">Age :
+			</p>
+			<p>
+				{{ product.age|nl2br|raw }}
+			</p>
+		</div>
+		<div class="container">
+			<p class="actiTitle">Lieu :
+			</p>
+			<p>
+				{{ product.place|nl2br|raw }}
+			</p>
+		</div>
+
+	</div>
+	<div class="col-lg-2 col-sm-12 container d-flex flex-column justify-content-center text-center">
+		<div class=" mt-5 actiGal">
+			<img src="/uploads/{{ product.gallery4 }}" alt="{{ product.name }}" class="img-fluid">
+		</div>
+		<div class="mt-5 actiGal">
+			<img src="/uploads/{{ product.gallery5 }}" alt="{{ product.name }}" class="img-fluid">
+		</div>
+		<div class="mt-5 actiGal">
+			<img src="/uploads/{{ product.gallery6 }}" alt="{{ product.name }}" class="img-fluid">
+		</div>
+	</div>
+</div>
 
 {% endblock %}
-

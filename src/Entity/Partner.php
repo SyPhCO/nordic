@@ -25,6 +25,12 @@ class Partner
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $contact = null;
+    
+    #[ORM\Column(length: 255)]
+    private ?string $btnTitle = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $btnUrl = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $gallery = null;
@@ -43,6 +49,9 @@ class Partner
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $gallery6 = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $slug = null;
 
     public function getId(): ?int
     {
@@ -97,6 +106,29 @@ class Partner
         return $this;
     }
 
+    public function getBtnTitle(): ?string
+    {
+        return $this->btnTitle;
+    }
+
+    public function setBtnTitle(string $btnTitle): self
+    {
+        $this->btnTitle = $btnTitle;
+
+        return $this;
+    }
+
+    public function getBtnUrl(): ?string
+    {
+        return $this->btnUrl;
+    }
+
+    public function setBtnUrl(string $btnUrl): self
+    {
+        $this->btnUrl = $btnUrl;
+
+        return $this;
+    }
     public function getGallery(): ?string
     {
         return $this->gallery;
@@ -162,6 +194,18 @@ class Partner
     public function setGallery6(?string $gallery6): self
     {
         $this->gallery6 = $gallery6;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

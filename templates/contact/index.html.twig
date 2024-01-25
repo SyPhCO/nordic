@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Nous contacter - Nordic Indiana{% endblock %}
-
+{% block social %} {% endblock %}
 {% block content %}
-    <h1>Me contacter</h1>
+<h1 class="text-center col-md-12 reveal">Me contacter </h1>
+
     <p>N'hésitez pas a prendre contact avec moi , pour tous renseignements ( réservation, achat de bon cadeau, informations complémentaires etc... ) </p>
     <div class="row mt-5 pt-5">
         <div class="col-md-8">{{ form(form) }}</div>
@@ -22,7 +23,29 @@
                     <li><i class="fas fa-envelope mt-4 fa-2x"></i>
                         <p>nordicindiana@yahoo.fr</p>
                     </li>
+                    <li class="d-flex flex-row justify-content-center">
+                    <a href="https://www.facebook.com/NordicIndiana?locale=fr_FR" target="_blank">
+    <div class="social-btn  p-5 color-facebook">
+      <img src="./assets/images/facebook.png" alt="facebook">
+    </div>
+  </a>
+
+                    </li>
+
+
+                    
                 </ul>
         </div>
     </div>
+                    <div class="social">
+
+
+
+</div>
+    {% if notification %}
+<div class="alert alert-info text-center">{{ notification }} </div>
+{% endif %}
+
+
+
 {% endblock %}
