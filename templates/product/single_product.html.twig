@@ -1,5 +1,5 @@
 <div class="product-item text-center">
                         <a href="{{ path('app_product', { 'slug' : product.slug }) }}"><img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}" class="figure-img img-fluid img-thumbnail max-width:200px rounded-circle object-fit-contain" style="width: 250px;height: 250px;" ></a>
-                        <h4 class="btn btn-block bg-info text-light fw-bolder">{{ product.name }}</h4>
+                        <a class="btn btn-block bg-info text-light fw-bold" href="{{ path('app_product', { 'slug' : product.slug }) }}">{{ product.name }}</a>
                         <span class="product-subtitle">{{ product.subtitle }}</span>
                     </div>

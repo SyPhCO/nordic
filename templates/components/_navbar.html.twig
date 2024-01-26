@@ -27,20 +27,23 @@
 							{% if acti.isDog == 1 %}
 
 
-								<li class="nav-item d-flex align-items-center  custom-button">
+								<li class="nav-item d-flex align-items-center text-center  custom-button">
+									
+									<a class="dropdown-item nav-link" href="{{ path('app_product', { 'slug' : acti.slug }) }}">
 									<img src="/assets/css/png/dog.png" width="30" height="24" alt="dog" class="d-inline-block ml-2">
-									<a class="dropdown-item nav-link" href="{{ path('app_product', { 'slug' : acti.slug }) }}">{{ acti.name }}</a>
+									{{ acti.name }}</a>
 								</li>
 							{% else %}
-								<li class="nav-item custom-button">
+								<li class="nav-item custom-button  text-center">
 									<a class="dropdown-item nav-link" href="{{ path('app_product', { 'slug' : acti.slug }) }}">{{ acti.name }}</a>
 								</li>
 							{% endif %}
 						{% endfor %}
 								<li class="nav-item d-flex align-items-center custom-button ">
-									<img src="/assets/css/png/com.png" width="30" height="24" alt="dog" class="d-inline-block ml-2">
+									
 					
 									<a class="nav-link  " href="{{ path('app_comments') }}">
+									<img src="/assets/css/png/com.png" width="30" height="24" alt="dog" class="d-inline-block ml-2">
 										Témoignages
 									</a>
 								</li>

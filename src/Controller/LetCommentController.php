@@ -52,8 +52,8 @@ class LetCommentController extends AbstractController
             $comments->setCreatedAt(new DateTimeImmutable());
             $this->entityManager->persist($comments);
             $this->entityManager->flush();
-            $notification =  "Merci de votre retour d'expérience, j'éspère celle-ci vous as été agréable .
-            Avant publication je me dois de vérifier chaque commentaire pour validation ( afin de ne pas retrouver de propos offensant ou insultant sur mon site qui se veux familial et jovial ).";
+            $notification =  "Merci de votre retour d'expérience.
+            Avant publication je me dois de vérifier chaque commentaire pour validation ( afin de ne pas retrouver de propos offensant ou insultant sur mon site qui se veut familial et jovial ).";
         }
 
         return $this->render('let_comment/index.html.twig', [
