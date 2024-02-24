@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{# {% extends 'base.html.twig' %}
 
 {% block title %}
 	{{ product.name }}
@@ -67,5 +67,94 @@
 		</div>
 	</div>
 </div>
+
+{% endblock %} #}
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ product.name}}{% endblock %}
+
+{% block content %}
+<h1 class="text-center">{{ product.name}}</h1>
+    <div class="row d-flex flex-row justify-content-center">
+
+<div class="col-lg-8 col-sm-12 mt-5">
+ <p>{{ product.subtitle }}</p>
+		<div class="col-12 mt-5 text-center ">
+			<img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}" class="img-fluid  rounded">
+		</div>
+		<div class="col-12 my-auto">
+			
+			
+			<hr>
+			<p>{{ product.description|nl2br|raw }}
+			</p>
+		</div>
+		<div class="container">
+			<p class="actiTitle">Tarif :
+			</p>
+			<p>
+				{{ product.rate|nl2br|raw }}
+			</p>
+		</div>
+		<div class="container">
+			<p class="actiTitle">Age :
+			</p>
+			<p>
+				{{ product.age|nl2br|raw }}
+			</p>
+		</div>
+		<div class="container">
+			<p class="actiTitle">Lieu :
+			</p>
+			<p>
+				{{ product.place|nl2br|raw }}
+			</p>
+		</div>
+
+	</div>
+
+        <div class="col-lg-2 col-sm-6 col-6 text-center d-flex flex-column ">
+            <div class="mt-5 ">
+                <img src="/uploads/{{ product.gallery }}" alt="{{ product.name }}" class="img-fluid rounded">
+            </div>
+            <div class="mt-5">
+                <img src="/uploads/{{ product.gallery2 }}" alt="{{ product.name }}" class="img-fluid rounded">
+            </div>
+            <div class="mt-5">
+                <img src="/uploads/{{ product.gallery3 }}" alt="{{ product.name }}" class="img-fluid rounded">
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-sm-6 col-6 text-center d-flex flex-column">
+            <div class="mt-5">
+                <img src="/uploads/{{ product.gallery4 }}" alt="{{ product.name }}" class="img-fluid rounded">
+            </div>
+            <div class="mt-5">
+                <img src="/uploads/{{ product.gallery5 }}" alt="{{ product.name }}" class="img-fluid rounded">
+            </div>
+            <div class="mt-5">
+                <img src="/uploads/{{ product.gallery6 }}" alt="{{ product.name }}" class="img-fluid rounded">
+            </div>
+        </div>
+
+    </div>
+
+{% if commentsByProduct|length > 0 %}
+ <h1 class="text-center mt-5">Commentaires</h1>
+    <div class="d-flex text-center justify-content-center flex-wrap">
+        {% for comments in commentsByProduct %}
+            {% if comments[0] == product.id %}
+                {% for comment in comments[1] %}
+				    <div class="text-center justify-content-center row  border-bottom pb-2">
+						<h3 class="text-center col-12 fw-bolder mt-5" id="top-{{ product.id }}-top">{{ comment[1].author }}</h3>
+						<img src="/uploads/comments/{{ comment[1].illustration }}" class="mb-4 img-fluid col-md-2 col-12 m-auto pt-5 pb-5" alt="test3" loading="lazy">
+						<div class="text-center col-md-10 col-12 m-auto">{{ comment[1].comment }}</div>
+                    </div>
+					
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}
 
 {% endblock %}

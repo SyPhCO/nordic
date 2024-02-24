@@ -1,18 +1,4 @@
 
-const sr = ScrollReveal({
-  duration: 1000,
-  reset: true
-});
-
-sr.reveal('h1', {
-  origin: 'top',
-  scale: 0.2,
-});
-sr.reveal('p', {
-  origin: 'top',
-  scale: 0.1,
-});
-
 
 // memo start
 const cards = document.querySelectorAll(".cardGame")

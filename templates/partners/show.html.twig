@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{# {% extends 'base.html.twig' %}
 
 {% block title %}Partenaires
 {% endblock %}
@@ -51,6 +51,62 @@
 			</div>
 		</div>
 		</div>
+
+
+{% endblock %} #}
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ partner.name}}{% endblock %}
+
+{% block content %}
+<h1 class="text-center">{{ partner.name}}</h1>
+    <div class="row d-flex flex-row justify-content-center">
+
+<div class="col-lg-8 col-sm-12 mt-5">
+
+			<div class="col-lg-8 col-sm-12 mt-5">
+
+				<div class=" mt-5">
+					<img src="/uploads/{{ partner.illustration }}" alt="{{ partner.name }}" class="img-fluid">
+				</div>
+				<div class="col-12 my-auto">
+
+					<hr>
+					<p>{{ partner.description|nl2br|raw }}
+					</p>
+					<p class="text-center">
+						<a class="btn btn-lg btn-info" href="{{ partner.btnUrl }}" role="button" target="_blank">{{ partner.btnTitle }}</a>
+					</p>
+				</div>
+
+
+	</div>
+
+    </div>
+        <div class="col-lg-2 col-sm-6 col-6 text-center d-flex flex-column ">
+            <div class="mt-5 ">
+                <img src="/uploads/{{ partner.gallery }}" alt="{{ partner.name }}" class="img-fluid rounded">
+            </div>
+            <div class="mt-5">
+                <img src="/uploads/{{ partner.gallery2 }}" alt="{{ partner.name }}" class="img-fluid rounded">
+            </div>
+            <div class="mt-5">
+                <img src="/uploads/{{ partner.gallery3 }}" alt="{{ partner.name }}" class="img-fluid rounded">
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-sm-6 col-6 text-center d-flex flex-column">
+            <div class="mt-5">
+                <img src="/uploads/{{ partner.gallery4 }}" alt="{{ partner.name }}" class="img-fluid rounded">
+            </div>
+            <div class="mt-5">
+                <img src="/uploads/{{ partner.gallery5 }}" alt="{{ partner.name }}" class="img-fluid rounded">
+            </div>
+            <div class="mt-5">
+                <img src="/uploads/{{ partner.gallery6 }}" alt="{{ partner.name }}" class="img-fluid rounded">
+            </div>
+        </div>
+
 
 
 {% endblock %}

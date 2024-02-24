@@ -1,0 +1,9 @@
+parameters:
+    env(APP_ENV): 'prod'
+    env(APP_SECRET): '28da7b15212371966523ec2680f16679'
+doctrine:
+    dbal:
+        dbname: 'syphcoonordic'
+        host: 'syphcoonordic.mysql.db'
+        user: 'syphcoonordic'
+        password: '1J4PNFfz15w'

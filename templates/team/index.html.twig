@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{# {% extends 'base.html.twig' %}
 
 {% block title %}Qui suis-je ? 
 {% endblock %}
@@ -48,5 +48,51 @@
 
 	{% endfor %}
 
+
+{% endblock %} #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Qui suis-je ?{% endblock %}
+
+{% block content %}
+{% for team in teams %}
+	<h1 class="text-center">{{ team.name}}</h1>
+<div class="row mt-5">
+
+    <div class="row d-flex flex-row justify-content-center col-lg-8">
+			<img src="/uploads/{{ team.illustration }}" alt="{{ team.name }}" class="img-fluid">
+		
+			<hr>
+			<p>{{ team.description|nl2br|raw }}
+			</p>
+	</div>
+
+        <div class="col-lg-2 col-sm-6 col-6 text-center d-flex flex-column ">
+            <div class="mt-5 ">
+                <img src="/uploads/{{ team.gallery }}" alt="{{ team.name }}" class="img-fluid rounded">
+            </div>
+            <div class="mt-5">
+                <img src="/uploads/{{ team.gallery2 }}" alt="{{ team.name }}" class="img-fluid rounded">
+            </div>
+            <div class="mt-5">
+                <img src="/uploads/{{ team.gallery3 }}" alt="{{ team.name }}" class="img-fluid rounded">
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-sm-6 col-6 text-center d-flex flex-column">
+            <div class="mt-5">
+                <img src="/uploads/{{ team.gallery4 }}" alt="{{ team.name }}" class="img-fluid rounded">
+            </div>
+            <div class="mt-5">
+                <img src="/uploads/{{ team.gallery5 }}" alt="{{ team.name }}" class="img-fluid rounded">
+            </div>
+            <div class="mt-5">
+                <img src="/uploads/{{ team.gallery6 }}" alt="{{ team.name }}" class="img-fluid rounded">
+            </div>
+        </div>
+
+</div>	
+<hr>
+{% endfor %}
 
 {% endblock %}

@@ -46,11 +46,8 @@ class ContactController extends AbstractController
             ->from($contact->getEmail())
             ->to('nordicindiana@yahoo.fr')
             ->subject($contact->getSubject())
-                // path of the Twig template to render
-    ->htmlTemplate('contact/email.html.twig')
-
-    // pass variables (name => value) to the template
-    ->context([
+        ->htmlTemplate('contact/email.html.twig')
+        ->context([
         'contact' => $contact
     ]);
 
@@ -58,9 +55,6 @@ class ContactController extends AbstractController
 
             $notification =  "Merci de m'avoir contacté. Je vous répondrai dans les meilleurs délais.";
         }
-
-        
-        
 
         return $this->render('contact/index.html.twig', [
             'form' => $form->createView(),

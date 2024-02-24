@@ -9,9 +9,7 @@ body{
     padding: 0;
   cursor: url(./photos/cursor.png), auto; 
 }
-a{
 
-}
 p{
   text-shadow: 1px 1px 2px white;
   font-size: 1.5em ;
@@ -684,3 +682,50 @@ video {
       margin-left: 45vw;
        }
     }
+    @media (max-width: 700px) {
+      .imgProduct {
+        height: 350px ;
+        width: 350px ;
+        object-fit: contain;
+        /* autres styles */
+    }
+      .imgSmallProduct{
+        width: 100px ;
+        height: 100px;
+        object-fit: contain;
+      }
+      }
+    @media (max-width: 450px) {
+      .imgProduct {
+        height: 200px ;
+        width: 200px ;
+        object-fit: cover;
+        /* autres styles */
+    }
+    .sign-btns a{
+      font-size: 0.7rem;
+    }
+    .imgSmallProduct{
+      width: 50px ;
+      height: 50px ;
+      object-fit: contain;
+    }
+    }
+    
+    .imgComment img{
+      width: 100px ;
+      height: 100px;
+      object-fit: contain;
+    }
+
+    .imgSmallProduct{
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+    }
+    .imgProduct {
+      max-height: 500px !important;
+      max-width: 500px !important;
+      object-fit: contain;
+      /* autres styles */
+  }
